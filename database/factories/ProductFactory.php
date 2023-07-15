@@ -27,6 +27,7 @@ class ProductFactory extends Factory
             'image' => $imageUrl,
             'description' => fake()->realText(200),
             'price' => fake()->randomFloat(2, 50, 500),
+            'published' => 1,
             'created_at' => now(),
             'updated_at' => now(),
             'created_by' => 1,
