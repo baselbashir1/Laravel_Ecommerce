@@ -22,7 +22,8 @@
             ]) }})"
                 class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
                 <a href="{{ route('product.view', $product->slug) }}" class="aspect-w-3 aspect-h-2 block overflow-hidden">
-                    <img src="{{ $product->image }}" alt=""
+                    <img src="{{ app('firebase.storage')->getBucket()->object('Images/' . $product->image)->signedUrl(new DateTime('9999-01-01')) }}"
+                        alt=""
                         class="object-cover rounded-lg hover:scale-105 hover:rotate-1 transition-transform" />
                 </a>
                 <div class="p-4">
