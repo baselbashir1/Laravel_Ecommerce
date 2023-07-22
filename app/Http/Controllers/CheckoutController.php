@@ -36,7 +36,7 @@ class CheckoutController extends Controller
                     'currency' => 'usd',
                     'product_data' => [
                         'name' => $product->title,
-                        // 'images' => [$product->image],
+                        'images' => [app('firebase.storage')->getBucket()->object('Images/' . $product->image)->signedUrl(new \DateTime('9999-01-01'))],
                     ],
                     'unit_amount' => $product->price * 100,
                 ],
@@ -141,7 +141,7 @@ class CheckoutController extends Controller
                     'currency' => 'usd',
                     'product_data' => [
                         'name' => $item->product->title,
-                        // 'images' => [$product->image],
+                        'images' => [app('firebase.storage')->getBucket()->object('Images/' . $item->product->image)->signedUrl(new \DateTime('9999-01-01'))],
                     ],
                     'unit_amount' => $item->unit_price * 100,
                 ],
