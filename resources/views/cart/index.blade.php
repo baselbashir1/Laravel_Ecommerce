@@ -8,7 +8,7 @@
                     fn($product) => [
                         'id' => $product->id,
                         'slug' => $product->slug,
-                        'image' => $product->image,
+                        'image' => app('firebase.storage')->getBucket()->object('Images/' . $product->image)->signedUrl(new DateTime('9999-01-01')),
                         'title' => $product->title,
                         'price' => $product->price,
                         'quantity' => $cartItems[$product->id]['quantity'],

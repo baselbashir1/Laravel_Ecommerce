@@ -24,10 +24,22 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Run these commands
 
 ```
+composer install
+```
+
+```
+npm install
+```
+
+```
 php artisan storage:link
 ```
 
-## env file
+```
+php artisan migrate --seed
+```
+
+## Env file
 
 ```
 APP_NAME=Laravel
@@ -46,6 +58,8 @@ DB_PORT=3306
 DB_DATABASE=laravel_ecommerce
 DB_USERNAME=root
 DB_PASSWORD=
+
+FIREBASE_CREDENTIALS=firebase_credentials.json
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
@@ -91,4 +105,11 @@ VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
 STRIPE_PUBLISHABLE_KEY=pk_test_51NEs22D5A1mRGhgD3UgMErQaGb4Xt2g1gxvDPW2I4Sw6VDz1fbDCIToVeKlhYlQq0JcHqf5G1A6jlfc0gkW3ahB700i249GMLH
 STRIPE_SECRET_KEY=sk_test_51NEs22D5A1mRGhgDwzahElqIvUD33rsQxBFmv8TeBB9H3S1BkS6KbfD00cbi9aJDfaIyAndrWf4kzr2qFVWPo1FC0018bi3Zax
+```
+
+## Login with credentials
+
+```
+Email: admin@example.com
+Password: admin123
 ```

@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use Exception;
+use App\Models\User;
 use App\Models\Order;
+use App\Models\Payment;
+use App\Models\CartItem;
 use App\Models\Customer;
+use App\Models\OrderItem;
 use App\Enums\OrderStatus;
 use App\Http\Helpers\Cart;
 use App\Enums\PaymentStatus;
-use App\Models\CartItem;
-use App\Models\OrderItem;
-use App\Models\Payment;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -115,7 +116,8 @@ class CheckoutController extends Controller
             // CartItem::where('user_id', $user->id)->delete();
             // $customer = \Stripe\Customer::retrieve($session->customer);
             $customer = Customer::query()->where(['user_id' => $user->id])->first();
-            return view('checkout.success', compact('customer'));
+            $user = User::query()->where(['id' => $user->id])->first();
+            return view('checkout.success', compact('customer', 'user'));
         } catch (NotFoundHttpException $e) {
             throw $e;
         } catch (\Exception $e) {
