@@ -75,8 +75,10 @@ class Cart
             ];
         }
 
-        if (!empty($newCartItems)) {
-            CartItem::insert($newCartItems);
+        if (Product::exists()) {
+            if (!empty($newCartItems)) {
+                CartItem::insert($newCartItems);
+            }
         }
     }
 

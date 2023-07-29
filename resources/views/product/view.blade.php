@@ -10,7 +10,7 @@
         <div class="grid gap-6 grid-cols-1 lg:grid-cols-5">
             <div class="lg:col-span-3">
                 <div x-data="{
-                    images: ['{{ $product->image }}'],
+                    images: ['{{ app('firebase.storage')->getBucket()->object('Images/' . $product->image)->signedUrl(new DateTime('9999-01-01')) }}'],
                     activeImage: null,
                     prev() {
                         let index = this.images.indexOf(this.activeImage);
