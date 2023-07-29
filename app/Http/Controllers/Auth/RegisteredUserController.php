@@ -42,10 +42,8 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'is_admin' => 0
         ]);
-
-        // $customer = $user->customer;
-        // $customer->status = CustomerStatus::Active->value;
 
         event(new Registered($user));
 
