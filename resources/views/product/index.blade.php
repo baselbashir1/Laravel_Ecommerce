@@ -22,7 +22,8 @@
             ]) }})"
                 class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white">
                 <a href="{{ route('product.view', $product->slug) }}" class="aspect-w-3 aspect-h-2 block overflow-hidden">
-                    <img src="{{ app('firebase.storage')->getBucket()->object('Images/' . $product->image)->signedUrl(new DateTime('9999-01-01')) }}"
+                    <img src="{{ Vite::asset('public/storage/Images/' . $product->image) }}"
+                    {{-- src="{{ app('firebase.storage')->getBucket()->object('Images/' . $product->image)->signedUrl(new DateTime('9999-01-01')) }}" --}}
                         alt=""
                         class="object-cover rounded-lg hover:scale-105 hover:rotate-1 transition-transform" />
                 </a>
@@ -40,6 +41,12 @@
                         <button class="btn-primary" @click="addToCart()">
                             Add to Cart
                         </button>
+                    </div>
+                @else
+                    <div class="flex justify-between py-3 px-4">
+                        <a class="btn-primary" href="/login">
+                            Sign in to order the product
+                        </a>
                     </div>
                 @endauth
 

@@ -4,6 +4,8 @@
 }" @cart-change.window="cartItemsCount = $event.detail.count"
     class="flex justify-between bg-slate-800 shadow-md text-white">
     <div>
+        {{-- <img src="{{ Vite::asset('public/storage/Images/hyperx.png') }}" alt="HyperX Logo"
+        style="wigdth: 40px; height: 40px"> --}}
         <a href="{{ route('home') }}" class="block py-navbar-item pl-5">HyperX Store</a>
     </div>
 
